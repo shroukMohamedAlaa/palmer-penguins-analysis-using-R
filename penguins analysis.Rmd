@@ -1,0 +1,54 @@
+---
+title: "R project for analysis palmer penguins dataset"
+author: "Shrouk"
+date: "2024-03-11"
+output: github_document
+---
+### Install and load the required packages
+```{r }
+install.packages("tidyverse")
+install.packages("ggplot2")
+library(tidyverse)
+library(ggplot2)
+```
+
+#### Load the Palmer Penguins dataset
+```{r  }
+library(palmerpenguins)
+data("penguins")
+
+```
+
+#### Display the first few rows of the dataset
+```{r }
+head(penguins)
+```
+
+
+#### Summary statistics
+```{r}
+summary(penguins)
+
+```
+### Visualization: Scatter plot of Bill Length and Bill Depth
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Bill Length vs. Bill Depth",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)",
+       color = "Species")
+```
+
+
+
+### Visualization: Boxplot of Flipper Length by Species
+```{r}
+ggplot(penguins, aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of Flipper Length by Species",
+       x = "Species",
+       y = "Flipper Length (mm)",
+       fill = "Species")
+```
+
